@@ -13,7 +13,7 @@ import models from "../../modelData/models";
  * Define UserPhotos, a React component of Project 4.
  */
 function UserPhotos() {
-  const userId = useParams();
+  const {userId} = useParams();
   const photos = models.photoOfUserModel(userId);
   const user = models.userModel(userId);
   if (!user) {
@@ -32,7 +32,7 @@ function UserPhotos() {
             <CardMedia
               component="img"
               height="400"
-              image={`images/${photo.file_name}`}
+              image={require(`../../images/${photo.file_name}`)}
               alt="user photo"
             />
             <Typography variant="caption" display="block" sx={{ marginTop: 1 }}>
